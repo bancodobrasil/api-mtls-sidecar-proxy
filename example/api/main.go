@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 
 	runtime "github.com/banzaicloud/logrus-runtime-formatter"
@@ -28,7 +29,16 @@ func main() {
 	r := gin.Default()
 
 	r.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"data": "I'm secured by an mTLS!"})
+		c.JSON(http.StatusOK, gin.H{"responseMessage": "I'm a GET secured by an mTLS!"})
+	})
+
+	r.POST("/", func(c *gin.Context) {
+		var json map[string]string
+		if err := c.ShouldBindJSON(&json); err != nil {
+			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
+			return
+		}
+		c.JSON(http.StatusOK, gin.H{"responseMessage": fmt.Sprintf("I'm a POST secured by an mTLS!. You said: %s", json["requestMessage"])})
 	})
 
 	r.Run()
