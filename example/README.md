@@ -1,6 +1,6 @@
-# Securitying a local API Example
+# Example: Securitying an API Endpoint
 
-To see this running, run the following:
+To see this example running, do the following:
 
 ```bash
 docker-compose up
@@ -23,5 +23,13 @@ To see the certificate pinning work:
 - The result should be:
 
 ```bash
+
+<html>
+<head><title>403 Forbidden</title></head>
+<body>
+<center><h1>403 Forbidden</h1></center>
+<hr><center>nginx/1.18.0</center>
+</body>
+</html>
 
 ```
