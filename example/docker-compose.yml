@@ -1,0 +1,8 @@
+version: "3.7"
+
+services:
+  mtls-sidecar:
+    image: local/demo-api-mtls-sidecar-server
+    build: .
+    ports:
+      - 443:443
