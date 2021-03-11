@@ -5,8 +5,6 @@ EXPOSE 443
 VOLUME [ "/etc/nginx/conf.d/certs" ]
 ENV ALLOWED_SSL_CLIENT_S_DN 'CN=Client 000000001,OU=Lab,O=Alice Ltd,L=Dream,ST=Sandman,C=WL'
 
-COPY nginx.conf /etc/nginx/conf.d/
+COPY nginx.conf /nginx.template
 
-COPY startup.sh /startup.sh
-
-CMD [ "/startup.sh" ]
+CMD ["/bin/sh","-c", "envsubst '${ALLOWED_SSL_CLIENT_S_DN} ${PROXY_PASS}' < /nginx.template > /etc/nginx/conf.d/nginx.conf; nginx-debug -g 'daemon off;'"]
