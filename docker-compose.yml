@@ -6,7 +6,7 @@ services:
     build: .
     environment:
       - ALLOWED_SSL_CLIENT_S_DN=CN=mTLS Teste Client000000001,OU=Lab,O=Alice Ltd,L=Dream,ST=Sandman,C=WL
-      - PROXY_PASS=www.iana.org
+      - PROXY_PASS=http://www.iana.org
     volumes:
       - ./example/sidecar/server-certs:/etc/nginx/conf.d/certs
     ports:
