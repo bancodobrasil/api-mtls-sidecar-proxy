@@ -28,7 +28,7 @@ func main() {
 	r := gin.Default()
 
 	r.GET("/", func(c *gin.Context) {
-		c.JSON(http.StatusOK, gin.H{"data": "I'm behing an mTLS!"})
+		c.JSON(http.StatusOK, gin.H{"data": "I'm secured by an mTLS!"})
 	})
 
 	r.Run()

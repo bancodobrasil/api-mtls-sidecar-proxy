@@ -42,7 +42,7 @@ Response:
 And then run a `curl` **with** a valid client certificate to see the iana.org proxied through the sidecar mTLS:
 
 ```bash
-curl --cacert ../server-certs/clients-ca.pem --key mtls-client.key.pem --cert mtls-client.cert.pem -k https://localhost
+curl --cacert example/server-certs/clients-ca.pem --key example/client/certs/mtls-client.key.pem --cert example/client/certs/mtls-client.cert.pem -k https://localhost
 ```
 
 Response:
@@ -70,14 +70,16 @@ Open **https://localhost/** on your browser and you will be warned about an inse
 
 If using Firefox, import the client certificate `examples/sidecar/client-certs/mtls-client.cert.p12` on the Preferences page and reload the page. The browser will now ask you which certificate you want to use. Choose the imported certificate and voilà!
 
-## Building with bundled certificate
+### Securitying a local API Example
+
+Check [this example](/example) on how to secure a locally running API with this Sidecar
+
+## Building bundling certificates in the Docker imagem
 
 In the [example folder](/example) you have some instructions on how to build this sidecar bundling your certificates. Basically, you will create a Dockerfile with the following contents:
 
 ```Dockerfile
 FROM bancodobrasil/api-mtls-sidecar-server:0.1.0
-
-ENV ALLOWED_SSL_CLIENT_S_DN 'CN=Pinning your Certificate,OU=Lab,O=Alice Ltd,L=Dream,ST=Sandman,C=WL'
 
 COPY path/to/server.pem /etc/nginx/conf.d/certs/server.pem
 COPY path/to/server-key.pem /etc/nginx/conf.d/certs/server-key.pem
