@@ -1,0 +1,12 @@
+version: "3.7"
+
+services:
+  mtls-sidecar:
+    image: local/api-mtls-sidecar-server
+    build: .
+    environment:
+      - ALLOWED_SSL_CLIENT_S_DN=emailAddress=tiagostutz@bb.com.br,CN=Open Banking e PIX MTLS Teste Client,OU=Labbs,O=Banco do Brasil S.A.,L=Brasilia,ST=Distrito Federal,C=BR
+    volumes:
+      - ./certs:/etc/nginx/conf.d/certs
+    ports:
+      - 443:443
