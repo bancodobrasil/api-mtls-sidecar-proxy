@@ -64,17 +64,23 @@ Response:
 
 ```
 
-### Testing with a Browser (Firefox)
+## The whole pattern
+
+The full pattern implemented here is the sidecar-proxy and ambassador-gateway. You can [check here](https://github.com/bancodobrasil/api-mtls-ambassador-gateway) the ambassador-gateway part.
+
+![mTLS Sidecar Ambassador Pattern](mTLS-sidecar-ambassador.png)
+
+## Testing with a Browser (Firefox)
 
 Open **https://localhost/** on your browser and you will be warned about an insecure certificate. Accept the "risks" and then check that the server returns a `400 Bad Request` to the browser. That's because you have not provided a client cetificate accepted by the server.
 
 If using Firefox, import the client certificate `examples/sidecar/client-certs/mtls-client.cert.p12` on the Preferences page and reload the page. The browser will now ask you which certificate you want to use. Choose the imported certificate and voilà!
 
-### Securitying a local API Example
+## Securitying a local API Example
 
 Check [this example](/example) on how to secure a locally running API with this Sidecar
 
-## Building bundling certificates in the Docker imagem
+## Bundling certificates in a Docker imagem
 
 In the [example folder](/example) you have some instructions on how to build this sidecar bundling your certificates. Basically, you will create a Dockerfile with the following contents:
 
