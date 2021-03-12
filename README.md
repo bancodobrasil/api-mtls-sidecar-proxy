@@ -85,14 +85,14 @@ Check [this example](/example) on how to secure a locally running API with this 
 In the [example folder](/example) you have some instructions on how to build this sidecar bundling your certificates. Basically, you will create a Dockerfile with the following contents:
 
 ```Dockerfile
-FROM bancodobrasil/api-mtls-sidecar-server:0.1.0
+FROM bancodobrasil/api-mtls-sidecar-proxy:0.1.0
 
 COPY path/to/server.pem /etc/nginx/conf.d/certs/server.pem
 COPY path/to/server-key.pem /etc/nginx/conf.d/certs/server-key.pem
 COPY path/to/clients-ca.pem /etc/nginx/conf.d/certs/clients-ca.pem
 ```
 
-This way you won't need to map any volume or define environment var. The container will be built specifically for one specific client.
+This way you won't need to map any volume or define environment var. The container will be built specifically for one given client.
 
 ## External References
 
