@@ -7,7 +7,7 @@ services:
     environment:
       - ALLOWED_SSL_CLIENT_S_DN=all
       # - ALLOWED_SSL_CLIENT_S_DN=CN=mTLS Teste Client000000001,OU=Lab,O=Alice Ltd,L=Dream,ST=Sandman,C=WL
-      - PROXY_PASS=http://www.iana.org
+      - PROXY_PASS=https://api.mocki.io:443/v1/13f44462
     volumes:
       # - ./example/sidecar/server-certs:/etc/nginx/conf.d/certs
       - ./temp/generated:/etc/nginx/conf.d/certs
