@@ -9,7 +9,7 @@ services:
       # - ALLOWED_SSL_CLIENT_S_DN=CN=mTLS Teste Client000000001,OU=Lab,O=Alice Ltd,L=Dream,ST=Sandman,C=WL
       - PROXY_PASS=http://www.iana.org
     volumes:
-      # - ./example/sidecar/server-certs:/etc/nginx/conf.d/certs
-      - ./temp/generated:/etc/nginx/conf.d/certs
+      - ./example/sidecar/server-certs:/etc/nginx/conf.d/certs
+      # - ./temp/generated:/etc/nginx/conf.d/certs
     ports:
       - 443:443
