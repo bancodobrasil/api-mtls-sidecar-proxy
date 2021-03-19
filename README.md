@@ -4,7 +4,7 @@ Sidecar Docker container used to authenticate using mTLS for the Open Banking an
 
 ## Quick Start
 
-To quickly take a look at this running, bring up this docker-compose:
+To quickly take a look at this running, download the test certificates located at the [examples/sidecar/server-certs](/examples/sidecar/server-certs) folder and bring up this docker-compose:
 
 ```yml
 version: "3.7"

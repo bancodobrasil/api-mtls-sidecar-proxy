@@ -1,4 +1,4 @@
-FROM local/api-mtls-sidecar-server
+FROM labbsr0x/api-mtls-sidecar-proxy:0.0.1
 
 COPY server-certs/server.pem /etc/nginx/conf.d/certs/server.pem
 COPY server-certs/server-key.pem /etc/nginx/conf.d/certs/server-key.pem
