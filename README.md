@@ -53,20 +53,7 @@ curl --cacert example/sidecar/server-certs/clients-ca.pem --key example/client/c
 Response:
 
 ```bash
-<!doctype html>
-<html>
-<head>
-	<title>Internet Assigned Numbers Authority</title>
-
-	<meta charset="utf-8" />
-	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-
-...
-</body>
-
-</html>
-
+[{"title":"Clean kitchen","description":"Don't forget the are under the sink!!"},{"title":"Call Eric","description":"Remind him to do his taxes"},{"title":"Water flowers","description":"Don't forget the ones in the garden!"}]
 ```
 
 ## The whole pattern
