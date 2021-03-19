@@ -4,17 +4,22 @@ Sidecar Docker container used to authenticate using mTLS for the Open Banking an
 
 ## Quick Start
 
-To quickly take a look at this running, open your terminal and:
+To quickly take a look at this running, bring up this docker-compose:
 
 ```bash
 
-git clone https://github.com/bancodobrasil/api-mtls-sidecar-server.git
+version: "3.7"
 
-```
-
-```bash
-
-docker-compose up
+services:
+  mtls-sidecar:
+    image: labbsr0x/api-mtls-sidecar-proxy:0.0.1
+    environment:
+      - ALLOWED_SSL_CLIENT_S_DN=all
+      - PROXY_PASS=https://api.mocki.io:443/v1/13f44462
+    volumes:
+      - ./example/sidecar/server-certs:/etc/nginx/conf.d/certs
+    ports:
+      - 443:443
 
 ```
 
@@ -42,7 +47,7 @@ Response:
 And then run a `curl` **with** a valid client certificate to see the iana.org proxied through the sidecar mTLS:
 
 ```bash
-curl --cacert example/sidecar/server-certs/clients-ca.pem --key example/client/certs/mtls-client.key.pem --cert example/client/certs/mtls-client.cert.pem -k https://localhost
+curl --cacert example/sidecar/server-certs/clients-ca.pem --key example/client/certs/client-key.pem --cert example/client/certs/client.pem -k https://localhost
 ```
 
 Response:
@@ -74,7 +79,7 @@ The full pattern implemented here is the sidecar-proxy and ambassador-gateway. Y
 
 Open **https://localhost/** on your browser and you will be warned about an insecure certificate. Accept the "risks" and then check that the server returns a `400 Bad Request` to the browser. That's because you have not provided a client cetificate accepted by the server.
 
-If using Firefox, import the client certificate `examples/client/certs/mtls-client.cert.p12` on the Preferences page and reload the page. The browser will now ask you which certificate you want to use. Choose the imported certificate and voilà!
+If using Firefox, import the client certificate `examples/client/certs/client.cert.p12` on the Preferences page and reload the page. The browser will now ask you which certificate you want to use. Choose the imported certificate and voilà!
 
 ## Securitying a local API Example
 

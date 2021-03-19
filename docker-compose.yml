@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   mtls-sidecar:
-    image: local/api-mtls-sidecar-server
+    image: local/api-mtls-sidecar-proxy
     build: .
     environment:
       - ALLOWED_SSL_CLIENT_S_DN=all
