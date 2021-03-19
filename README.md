@@ -6,8 +6,7 @@ Sidecar Docker container used to authenticate using mTLS for the Open Banking an
 
 To quickly take a look at this running, bring up this docker-compose:
 
-```bash
-
+```yml
 version: "3.7"
 
 services:
@@ -20,7 +19,6 @@ services:
       - ./example/sidecar/server-certs:/etc/nginx/conf.d/certs
     ports:
       - 443:443
-
 ```
 
 Then try `curl` **without** a client certificate to see a Bad Request response:
