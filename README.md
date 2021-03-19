@@ -4,7 +4,7 @@ Sidecar Docker container used to authenticate using mTLS for the Open Banking an
 
 ## Quick Start
 
-To quickly take a look at this running, download the test certificates located at the [example/sidecar/server-certs](/example/sidecar/server-certs) folder and bring up this docker-compose:
+To quickly take a look at this running, download the test certificates located at the [example/sidecar/server-certs](/example/sidecar/server-certs) to a local folder named **"certs"** and bring up this docker-compose:
 
 ```yml
 version: "3.7"
@@ -16,7 +16,7 @@ services:
       - ALLOWED_SSL_CLIENT_S_DN=all
       - PROXY_PASS=https://api.mocki.io:443/v1/13f44462
     volumes:
-      - ./example/sidecar/server-certs:/etc/nginx/conf.d/certs
+      - ./certs:/etc/nginx/conf.d/certs
     ports:
       - 443:443
 ```
