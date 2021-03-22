@@ -13,7 +13,7 @@ services:
   mtls-sidecar:
     image: labbsr0x/api-mtls-sidecar-proxy:0.0.1
     environment:
-      - ALLOWED_SSL_CLIENT_S_DN=all
+      - ALLOWED_CERTIFICATE_FINGERPRINT=all
       - PROXY_PASS=https://api.mocki.io:443/v1/13f44462
     volumes:
       - ./certs:/etc/nginx/conf.d/certs

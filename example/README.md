@@ -17,8 +17,8 @@ $ curl --cacert sidecar/server-certs/clients-ca.pem --key client/certs/mtls-clie
 To see the certificate pinning work:
 
 - execute `docker-compose down` if you are running the service
-- modify the value of the `ALLOWED_SSL_CLIENT_S_DN` environment variable on the `docker-compose.yml` file (**for example**: `ALLOWED_SSL_CLIENT_S_DN=CN=Client New,OU=Lab,O=Alice Ltd,L=Dream,ST=Sandman,C=WL`)
-- run `docker-compose up` again to bring the service with the new value of `ALLOWED_SSL_CLIENT_S_DN` applied
+- modify the value of the `ALLOWED_CERTIFICATE_FINGERPRINT` environment variable on the `docker-compose.yml` file (**for example**: `ALLOWED_CERTIFICATE_FINGERPRINT=f90c85270cb3c7e2133119f4c02f2f36a17984dc`)
+- run `docker-compose up` again to bring the service with the new value of `ALLOWED_CERTIFICATE_FINGERPRINT` applied
 - execute the same `curl` describe above again
 - The result should be:
 
