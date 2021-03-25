@@ -7,7 +7,7 @@ docker-compose up
 ```
 
 ```bash
-$ curl --cacert sidecar/server-certs/clients-ca.pem --key client/certs/mtls-client.key.pem --cert client/certs/mtls-client.cert.pem -k https://localhost
+$ curl --cacert sidecar/server-certs/server-ca.pem --key client/certs/mtls-client.key.pem --cert client/certs/mtls-client.cert.pem -k https://localhost
 
 {"data":"I'm secured by an mTLS!"}
 ```

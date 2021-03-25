@@ -42,10 +42,10 @@ Response:
 
 ```
 
-And then run a `curl` **with** a valid client certificate to see the iana.org proxied through the sidecar mTLS:
+And then run a `curl` **with** a valid client certificate to see the `api.mocki.io` result proxied through the sidecar mTLS:
 
 ```bash
-curl --cacert example/sidecar/server-certs/clients-ca.pem --key example/client/certs/client-key.pem --cert example/client/certs/client.pem -k https://localhost
+curl --cacert example/sidecar/server-certs/server-ca.pem --key example/client/certs/client-key.pem --cert example/client/certs/client.pem -k https://localhost
 ```
 
 Response:
