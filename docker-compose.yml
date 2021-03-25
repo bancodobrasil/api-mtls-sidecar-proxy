@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   mtls-sidecar:
-    image: local/api-mtls-sidecar-proxy
+    image: local/api-mtls-sidecar-proxy:0.0.2
     build: .
     environment:
       - ALLOWED_CERTIFICATE_FINGERPRINT=all
