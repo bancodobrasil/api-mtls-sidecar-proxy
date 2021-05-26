@@ -48,10 +48,11 @@ And then run a `curl` **with** a valid client certificate to see the `api.mocki.
 curl --cacert example/sidecar/server-certs/server-ca.pem --key example/client/certs/client-key.pem --cert example/client/certs/client.pem -k https://localhost
 ```
 
-Response:
+Response will be the home page of https://mtls.run/:
 
 ```bash
-[{"title":"Clean kitchen","description":"Don't forget the are under the sink!!"},{"title":"Call Eric","description":"Remind him to do his taxes"},{"title":"Water flowers","description":"Don't forget the ones in the garden!"}]
+!DOCTYPE html><html lang="en"><head><meta name="viewport" content="width=device-width"/><meta charSet="utf-8"/><title>mTLS Best Friend</title><link rel="icon" href="/logo_labbs.png"/><meta name="next-head-count" content="4"/><link rel="preload" href="/_next/static/css/4a81d3e230deb4774270.css" as="style"/><link rel="stylesheet" href="/_next/static/css/4a81d3e230deb4774270.css" data-n-g=""/><noscript data-n-css=""></noscript><link rel="preload" href="/_next/static/chunks/main-a3e8d7207ca8525c43de.js" as="script"/>
+...
 ```
 
 ## The whole pattern
