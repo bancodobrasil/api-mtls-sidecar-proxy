@@ -6,7 +6,7 @@ services:
     build: .
     environment:
       - ALLOWED_CERTIFICATE_FINGERPRINT=all
-      - PROXY_PASS=https://api.mocki.io:443/v1/13f44462
+      - PROXY_PASS=https://mtls.run/
     volumes:
       - ./example/sidecar/server-certs:/etc/nginx/conf.d/certs
     ports:
